@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+
+  email String @unique()
+  password String
+  hashRt String?
+  name String?
+  isApproved Boolean @default(false)
+  bookMarkCount Int @default(0)
+
+  // One to One
+  address Address?
+  // One to Many
+  bookmarks Bookmark[]
+
+  // One to One self realationship
+  editorId Int? @unique
+  editor User? @relation("AuthorEditor", fields: [editorId], references: [id])
+  author User? @relation("AuthorEditor")
+
+  // Many to Many self realationship
+  publishers User[] @relation("AuthorsPublishers")
+  authors User[] @relation("AuthorsPublishers")
+
+  @@map("users")
+} 
+
+model Address {
+  id Int @id @default(autoincrement())
+  
+  street String
+  city String
+  country String
+
+  // One to One
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Bookmark {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+
+  title String @unique
+  link String
+  description String?
+
+  // Many to One
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  // Many to Many
+  categories Category[]
+
+  @@map("bookmarks")
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+
+  name String @unique()
+  
+  // Many to Many
+  bookmarks Bookmark[]
+
+  // One to Many self relationship
+  parentCategoryId Int?
+  parentCategory   Category?  @relation("subCategories", fields: [parentCategoryId], references: [id])
+  subCategories    Category[] @relation("subCategories")
+}

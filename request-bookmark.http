@@ -1,0 +1,51 @@
+### Create Bookmark
+POST http://localhost:3000/bookmarks
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MzI5NywiZXhwIjoxNjQ5Nzc0MTk3fQ.Hh6xh3zahQKZg6ZoygWLyhHHg0cmBCePl2zzDlqQMYE
+
+
+{
+    "title": "title10",
+    "link": "google.com",
+    "description": "description",
+    "categories": [1]
+}
+
+
+### Get All Bookmarks
+GET http://localhost:3000/bookmarks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MzE4NywiZXhwIjoxNjQ5Nzc0MDg3fQ.xcZxZP9NfccWhpjs0NgXmYG_4aO4m9ItY-CYdpOdGoc
+
+
+### Get All Bookmarks with Categories or User
+GET http://localhost:3000/bookmarks?categories&user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTg0MzQ1NywiZXhwIjoxNjQ5ODQ0MzU3fQ.Y8kOWCUk_WUY6Erzd0uGYQIYA3D5H7Umnyfv7wq2aAU
+
+
+### Get All Bookmarks for current User
+GET http://localhost:3000/bookmarks/current-user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTgzMTE5NSwiZXhwIjoxNjQ5ODMyMDk1fQ.UurX-P6fDRnh50nJkITGziXQBUZi0VkEiVf7C1M5TWA
+
+### Find One Within current User Bookmarks
+GET http://localhost:3000/bookmarks/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJpYXQiOjE2NDk3MzM5MTUsImV4cCI6MTY0OTczNDgxNX0.-ZLhKvMaYG_RTyErcjPCV8lp1yhtUfmki4WR6pfQ4xw
+
+
+
+### Edit Bookmark
+PATCH http://localhost:3000/bookmarks/12
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MzI5NywiZXhwIjoxNjQ5Nzc0MTk3fQ.Hh6xh3zahQKZg6ZoygWLyhHHg0cmBCePl2zzDlqQMYE
+
+
+{
+    "title": "updated title1",
+    "link": "google.com",
+    "description": "description",
+    "categories": [2]
+}
+
+
+### Delete Bookmark
+DELETE http://localhost:3000/bookmarks/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJpYXQiOjE2NDk3MzM5MTUsImV4cCI6MTY0OTczNDgxNX0.-ZLhKvMaYG_RTyErcjPCV8lp1yhtUfmki4WR6pfQ4xw

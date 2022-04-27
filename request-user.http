@@ -1,0 +1,107 @@
+### Sign up 
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+
+### Verify User
+GET http://localhost:3000/auth/verify/18
+
+
+### Sign in
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+
+### refresh Token
+POST http://localhost:3000/auth/refresh
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTgzMTE4NSwiZXhwIjoxNjQ5OTE3NTg1fQ.lTz52cq3NNByvo6T_dg1upvte6QDWzX8VHYgtM1YX0A
+
+
+### Change Password
+POST http://localhost:3000/auth/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTg0NjIzNSwiZXhwIjoxNjQ5ODQ3MTM1fQ.VMCg9WJPt8dznU9BgaHQ8VDHl7GRVJExh-xK38A3Xk8
+
+{
+    "oldPassword": "admin",
+    "newPassword": "newAdmin"
+}
+
+
+### logout 
+POST http://localhost:3000/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTgzMDk3NSwiZXhwIjoxNjQ5ODMxODc1fQ.WjtmQZGg3wD-EObZVF_vHJA3pCgwAQVnjLmr0zoEmaY
+
+### Get me
+GET http://localhost:3000/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTgzMTE5NSwiZXhwIjoxNjQ5ODMyMDk1fQ.UurX-P6fDRnh50nJkITGziXQBUZi0VkEiVf7C1M5TWA
+
+
+### find all Users
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTg0MjYzOSwiZXhwIjoxNjQ5ODQzNTM5fQ.1X9wB4C5LeDSgR8KjJE5uK5oYb-EIlBjNDxThlXKvh4
+
+
+### find all Users with bookmarks
+GET http://localhost:3000/users?address&bookmarks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTg0MjYzOSwiZXhwIjoxNjQ5ODQzNTM5fQ.1X9wB4C5LeDSgR8KjJE5uK5oYb-EIlBjNDxThlXKvh4
+
+
+
+### find User by id
+GET http://localhost:3000/users/by-id/16
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTczMTE4OSwiZXhwIjoxNjQ5NzMyMDg5fQ.RDhMyV7yQWQku6gHvqXGhNTozlKJKJP5SQjMvTLTWJo
+
+
+### Update User
+PATCH http://localhost:3000/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJlbWFpbCI6ImFkbWluNUBnbWFpbC5jb20iLCJpYXQiOjE2NDk4NDQzMjUsImV4cCI6MTY0OTg0NTIyNX0.2SIEQc8MFGDZMC4pWbl3Ku89uHEWNeBkcAOZ4mXd2HU
+
+{
+    "name": "Karina",
+    "address": {
+        "street": "No.112, karina street",
+        "city": "karina city",
+        "country": "karina country"
+    }
+}
+
+
+### Delete User
+DELETE http://localhost:3000/users/17
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE1LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTY4NzE2MywiZXhwIjoxNjQ5Njg4MDYzfQ._xD0wFIdJzl3sIGuZXuPORXiMp0Am0fVViUSbYrYXvA
+
+
+### find Current User's Bookmarks 
+GET http://localhost:3000/users/current-user/bookmarks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJpYXQiOjE2NDk3NDUxMzgsImV4cCI6MTY0OTc0NjAzOH0.NB6bb8gyIJ37q0jfIT0p2bjpTSB1WQI0CtV_0Zpi2eA
+
+### update user's editor 
+PATCH http://localhost:3000/users/update/editor/16
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTg0Nzc3NSwiZXhwIjoxNjQ5ODQ4Njc1fQ.-4K0GGEhlosDq6unV36c_W_G9pryeFiLWlAftXCdIms
+
+{
+    "editorId": 18
+}
+
+
+### update user's Publishers
+PATCH http://localhost:3000/users/update/publisher/16
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTg0Nzc3NSwiZXhwIjoxNjQ5ODQ4Njc1fQ.-4K0GGEhlosDq6unV36c_W_G9pryeFiLWlAftXCdIms
+
+{
+    "authorId": 19
+}

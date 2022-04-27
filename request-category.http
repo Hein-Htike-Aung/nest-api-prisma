@@ -1,0 +1,48 @@
+### Create Category
+POST http://localhost:3000/categories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MzE4NywiZXhwIjoxNjQ5Nzc0MDg3fQ.xcZxZP9NfccWhpjs0NgXmYG_4aO4m9ItY-CYdpOdGoc
+
+{
+    "name": "Fifth Category"
+}
+
+
+### Get All Categories
+GET http://localhost:3000/categories
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MzU4MywiZXhwIjoxNjQ5Nzc0NDgzfQ.Tt5PYXdsk_yZblVn9x_ggMYKPoVJTR7l8Y6WIFOTRmw
+
+
+### Get All Categories with Bookmarks
+GET http://localhost:3000/categories?bookmarks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MzU4MywiZXhwIjoxNjQ5Nzc0NDgzfQ.Tt5PYXdsk_yZblVn9x_ggMYKPoVJTR7l8Y6WIFOTRmw
+
+
+### find by id
+GET http://localhost:3000/categories/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MTg1MywiZXhwIjoxNjQ5NzcyNzUzfQ.Jod6av-wzx_vXqAp8YOuOxxxyDXvCiK7w4yHGc1Ni4k
+
+
+### update Category
+PATCH http://localhost:3000/categories/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MTg1MywiZXhwIjoxNjQ5NzcyNzUzfQ.Jod6av-wzx_vXqAp8YOuOxxxyDXvCiK7w4yHGc1Ni4k
+
+{
+    "name": "updated Category"
+}
+
+
+### delete category
+DELETE http://localhost:3000/categories/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTc3MTg1MywiZXhwIjoxNjQ5NzcyNzUzfQ.Jod6av-wzx_vXqAp8YOuOxxxyDXvCiK7w4yHGc1Ni4k
+
+
+### Add SubCategory
+PATCH  http://localhost:3000/categories/update/subcategory/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE2LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY0OTg0OTU2OSwiZXhwIjoxNjQ5ODUwNDY5fQ.Bbv2es-UgPc6mcfhv6LJOzl_N3SenP1hNjo5Gqv5MUM
+
+{
+    "parentCategoryId": 1
+}
